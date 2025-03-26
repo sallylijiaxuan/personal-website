@@ -298,7 +298,7 @@ nav ul li a {
 
 #about {
   width: 100%;
-  height: 100vh;
+  height: auto;
   background: #f7f7f7;
   padding-top: 190px;
 }
@@ -334,10 +334,10 @@ nav ul li a {
 }
 
 /*-----------------------------------------------------------------------------------*/
-/*  Journal
+/*  Project
 /*-----------------------------------------------------------------------------------*/
 
-#journal,  #journal-blog {
+#project,  #project-blog {
   height: auto;
   width: 100%;
   /*background: #f7f7f7;*/
@@ -345,31 +345,31 @@ nav ul li a {
   position: relative;
 }
 
-#journal-blog {
+#project-blog {
   background: #fff;
   padding-bottom: 30px;
 }
 
-#journal .journal-block {
+#project .project-block {
   display: inline-block;
   height: auto;
   width: 100%;
 }
 
-#journal .journal-block .journal-info {
+#project .project-block .project-info {
   position: relative;
 }
 
-.journal-block .journal-info img {
+.project-block .project-info img {
   max-width: 100%;
 }
 
-.journal-block .journal-info .journal-txt {
+.project-block .project-info .project-txt {
   padding: 25px 0px;
   position: relative;
 }
 
-.journal-block .journal-info .journal-txt h4 a {
+.project-block .project-info .project-txt h4 a {
   display: block;
   font-size: 19px;
   line-height: 24px;
@@ -383,7 +383,7 @@ nav ul li a {
   transition: all 0.5s ease-in-out 0s;
 }
 
-.journal-block .journal-info .journal-txt h4 a:hover {
+.project-block .project-info .project-txt h4 a:hover {
   color: #b8a07e;
   -moz-transition: all 0.5s ease-in-out 0s;
   -ms-transition: all 0.5s ease-in-out 0s;
@@ -392,7 +392,7 @@ nav ul li a {
   transition: all 0.5s ease-in-out 0s;
 }
 
-.journal-block .journal-info .journal-txt p {
+.project-block .project-info .project-txt p {
   margin: 0;
   font-size: 14px;
   line-height: 24px;
@@ -406,42 +406,6 @@ nav ul li a {
   position: relative;
   padding-bottom: 50px;
   background: #f7f7f7;
-}
-
-#portfolio .portfolio-list {
-  margin-bottom: 50px;
-}
-
-#portfolio .portfolio-list .nav {
-  display: inline-block;
-  margin: 0;
-}
-
-#portfolio .portfolio-list .nav li {
-  margin: 0 40px 0 0;
-  float: left;
-  font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  cursor: pointer;
-  font-family: 'Poppins', helvetica;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: capitalize;
-  -moz-transition: all 0.5s ease-in-out 0s;
-  -ms-transition: all 0.5s ease-in-out 0s;
-  -o-transition: all 0.5s ease-in-out 0s;
-  -webkit-transition: all 0.5s ease-in-out 0s;
-  transition: all 0.5s ease-in-out 0s;
-}
-
-#portfolio .portfolio-list .nav li:hover, #portfolio .portfolio-list .nav li.filter-active  {
-  color: #b8a07e;
-  -moz-transition: all 0.5s ease-in-out 0s;
-  -ms-transition: all 0.5s ease-in-out 0s;
-  -o-transition: all 0.5s ease-in-out 0s;
-  -webkit-transition: all 0.5s ease-in-out 0s;
-  transition: all 0.5s ease-in-out 0s;
 }
 
 #portfolio .portfolio-container {
@@ -482,7 +446,6 @@ nav ul li a {
 #contact input, #contact textarea {
   width: 100%;
 }
-
 
 #contact  #sendmessage {
   color: #18d26e;

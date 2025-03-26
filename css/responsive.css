@@ -68,8 +68,8 @@
     margin: 20px;
     display: inline-block;
   }
-  /* journal */
-  #journal .journal-block .journal-info {
+  /* project */
+  #project .project-block .project-info {
     margin-bottom: 30px;
   }
   /* Contact */
@@ -139,8 +139,8 @@
     margin: 20px;
     display: inline-block;
   }
-  /* journal */
-  #journal .journal-block .journal-info {
+  /* project */
+  #project .project-block .project-info {
     margin-bottom: 30px;
   }
   /* Contact */
@@ -210,8 +210,8 @@
     margin: 10px;
     display: inline-block;
   }
-  /* journal */
-  #journal .journal-block .journal-info {
+  /* project */
+  #project .project-block .project-info {
     margin-bottom: 30px;
   }
   /* Contact */
@@ -280,8 +280,8 @@
     float: none;
     margin: 20px;
   }
-  /* journal */
-  #journal .journal-block .journal-info {
+  /* project */
+  #project .project-block .project-info {
     margin-bottom: 30px;
   }
   /* Contact */
@@ -350,8 +350,8 @@
     float: none;
     margin: 20px;
   }
-  /* journal */
-  #journal .journal-block .journal-info {
+  /* project */
+  #project .project-block .project-info {
     margin-bottom: 30px;
   }
   /* Contact */
