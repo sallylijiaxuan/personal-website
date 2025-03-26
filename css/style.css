@@ -425,58 +425,43 @@ nav ul li a {
 }
 
 /*-----------------------------------------------------------------------------------*/
-/*  Contact
+/*  Photo
 /*-----------------------------------------------------------------------------------*/
 
-#contact {
-  height: auto;
-  width: 100%;
-}
-
-.contact-details {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.contact-details li {
-  padding-bottom: 10px;
-}
-
-#contact input, #contact textarea {
-  width: 100%;
-}
-
-#contact  #sendmessage {
-  color: #18d26e;
-  border: 1px solid #18d26e;
-  display: none;
+#photo {
   text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin: 15px;
 }
 
-#contact  #errormessage {
-  color: red;
-  display: none;
-  border: 1px solid red;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin: 15px;
+#photo h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #292929;
 }
 
-#contact #sendmessage.show, #contact #errormessage.show, #contact .show {
-  display: block;
+.photo-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
 }
 
-#contact .validation {
-  color: red;
-  display: none;
-  margin: 0 0 20px;
-  font-weight: 400;
-  font-size: 13px;
+.photo-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.photo-scroll::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.photo-scroll img {
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 
 /*-----------------------------------------------------------------------------------*/
