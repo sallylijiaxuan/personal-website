@@ -85,21 +85,29 @@ $(document).ready(function() {
     });
   });
 
-
   // ========================================================================= //
-  //  Owl Carousel Services
+  //  Owl Carousel
   // ========================================================================= //
 
+  $('.project-carousel').owlCarousel({
+    items: 1,
+    loop: true,
+    margin: 10,
+    nav: false,
+    dots: false,
+    autoplay: false,
+    smartSpeed: 600
+  });
 
-  $('.services-carousel').owlCarousel({
-      autoplay: true,
-      loop: true,
-      margin: 20,
-      dots: true,
-      nav: false,
-      responsiveClass: true,
-      responsive: { 0: { items: 1 }, 768: { items: 2 }, 900: { items: 4 } }
-    });
+// Enable autoplay only on hover
+  $('.project-carousel').hover(
+      function () {
+        $(this).trigger('play.owl.autoplay', [1500]);
+      },
+      function () {
+        $(this).trigger('stop.owl.autoplay');
+      }
+  );
 
   // ========================================================================= //
   //  magnificPopup

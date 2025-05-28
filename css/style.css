@@ -130,6 +130,14 @@ p {
   text-transform: uppercase;
 }
 
+.section-description {
+  font-size: 14px;
+  color: #999;
+  margin-top: 10px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
 .form-control {
   background-color: transparent;
   border: 1px solid #999;
@@ -396,6 +404,18 @@ nav ul li a {
   margin: 0;
   font-size: 14px;
   line-height: 24px;
+}
+
+.project-carousel img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+.project-carousel .owl-stage {
+  transition: transform 0.6s ease;
 }
 
 /*-----------------------------------------------------------------------------------*/
