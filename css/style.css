@@ -455,7 +455,7 @@ nav ul li a {
 
 #photo h2 {
   font-size: 24px;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   text-transform: uppercase;
   color: #292929;
 }
