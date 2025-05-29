@@ -257,6 +257,11 @@
     padding-top: 15px;
     display: block;
   }
+  /* Header */
+  .header-profile img {
+    width: 370px;
+    height: 370px;
+  }
   /* About */
   .head-info .header-content h1 {
     font-size: 32px;
