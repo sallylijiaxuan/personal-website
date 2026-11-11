@@ -1,166 +1,19 @@
-/*global $, jQuery, alert*/
-$(document).ready(function() {
-
-  'use strict';
-
-  // ========================================================================= //
-  //  //SMOOTH SCROLL
-  // ========================================================================= //
-
-
-  $(document).on("scroll", onScroll);
-
-  $('a[href^="#"]').on('click', function(e) {
-    e.preventDefault();
-    $(document).off("scroll");
-
-    $('a').each(function() {
-      $(this).removeClass('active');
-      if ($(window).width() < 768) {
-        $('.nav-menu').slideUp();
-      }
-    });
-
-    $(this).addClass('active');
-
-    var target = this.hash,
-        menu = target;
-
-    target = $(target);
-    $('html, body').stop().animate({
-      'scrollTop': target.offset().top - 80
-    }, 500, 'swing', function() {
-      window.location.hash = target.selector;
-      $(document).on("scroll", onScroll);
-    });
+'use strict';
+for (const button of document.querySelectorAll('.case-toggle')) {
+  button.addEventListener('click', () => {
+    const panel = document.getElementById(button.getAttribute('aria-controls'));
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!expanded));
+    panel.hidden = expanded;
+    button.innerHTML = expanded ? 'Explore the thinking <span>↗</span>' : 'Close the story <span>−</span>';
   });
-
-
-  function onScroll(event) {
-    if ($('.home').length) {
-      var scrollPos = $(document).scrollTop();
-      $('nav ul li a').each(function() {
-        var currLink = $(this);
-        var refElement = $(currLink.attr("href"));
-      });
-    }
-  }
-
-  // ========================================================================= //
-  //  //NAVBAR SHOW - HIDE
-  // ========================================================================= //
-
-
-  $(window).scroll(function() {
-    var scroll = $(window).scrollTop();
-    if (scroll > 200 ) {
-      $("#main-nav, #main-nav-subpage").slideDown(700);
-      $("#main-nav-subpage").removeClass('subpage-nav');
-    } else {
-      $("#main-nav").slideUp(700);
-      $("#main-nav-subpage").hide();
-      $("#main-nav-subpage").addClass('subpage-nav');
-    }
-  });
-
-  // ========================================================================= //
-  //  // RESPONSIVE MENU
-  // ========================================================================= //
-
-  $('.responsive').on('click', function(e) {
-    $('.nav-menu').slideToggle();
-  });
-
-  // ========================================================================= //
-  //  Typed Js
-  // ========================================================================= //
-
-  var typed = $(".typed");
-
-  $(function() {
-    typed.typed({
-      strings: ["Sally Li.", "A Developer.", "A Designer.", "A Marketer.", "A Photographer."],
-      typeSpeed: 100,
-      loop: true,
-    });
-  });
-
-  // ========================================================================= //
-  //  Owl Carousel
-  // ========================================================================= //
-
-  $('.project-carousel').owlCarousel({
-    items: 1,
-    loop: true,
-    margin: 10,
-    nav: false,
-    dots: false,
-    autoplay: false,
-    smartSpeed: 600
-  });
-
-// Enable autoplay only on hover
-  $('.project-carousel').hover(
-      function () {
-        $(this).trigger('play.owl.autoplay', [1500]);
-      },
-      function () {
-        $(this).trigger('stop.owl.autoplay');
-      }
-  );
-
-  // ========================================================================= //
-  //  magnificPopup
-  // ========================================================================= //
-
-  var magnifPopup = function() {
-    $('.popup-img').magnificPopup({
-      type: 'image',
-      removalDelay: 300,
-      mainClass: 'mfp-with-zoom',
-      gallery: {
-        enabled: true
-      },
-      titleSrc: 'title',
-      zoom: {
-        enabled: true, // By default it's false, so don't forget to enable it
-
-        duration: 300, // duration of the effect, in milliseconds
-        easing: 'ease-in-out', // CSS transition easing function
-
-        // The "opener" function should return the element from which popup will be zoomed in
-        // and to which popup will be scaled down
-        // By defailt it looks for an image tag:
-        opener: function(openerElement) {
-          // openerElement is the element on which popup was initialized, in this case its <a> tag
-          // you don't need to add "opener" option if this code matches your needs, it's defailt one.
-          return openerElement.is('img') ? openerElement : openerElement.find('img');
-        }
-      }
-    });
-  };
-
-
-  // Call the functions
-  magnifPopup();
-
+}
+const focusButton = document.getElementById('focus-toggle');
+focusButton.addEventListener('click', () => {
+  const active = focusButton.getAttribute('aria-pressed') !== 'true';
+  focusButton.setAttribute('aria-pressed', String(active));
+  document.querySelector('.focus-window').classList.toggle('is-focusing', active);
+  document.getElementById('focus-status').textContent = active ? 'One thing at a time. Your friend is here.' : 'Room to breathe. Ready when you are.';
+  focusButton.textContent = active ? 'Pause for a breath Ⅱ' : 'Take a focus moment ↗';
 });
-
-// ========================================================================= //
-//  Porfolio isotope and filter
-// ========================================================================= //
-$(window).load(function(){
-
-  var portfolioIsotope = $('.portfolio-container').isotope({
-    itemSelector: '.portfolio-thumbnail',
-    layoutMode: 'fitRows'
-  });
-
-  $('#portfolio-flters li').on( 'click', function() {
-    $("#portfolio-flters li").removeClass('filter-active');
-    $(this).addClass('filter-active');
-
-    portfolioIsotope.isotope({ filter: $(this).data('filter') });
-  });
-
-})
+document.getElementById('year').textContent = new Date().getFullYear();

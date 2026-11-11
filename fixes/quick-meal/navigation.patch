@@ -1,0 +1,23 @@
+--- a/src/router.ts
++++ b/src/router.ts
+@@ -34,12 +34,16 @@
+ }
+ 
+ export function navigate(to: string, opts: { replace?: boolean } = {}): void {
+-  if (opts.replace) history.replaceState(null, '', to)
+-  else history.pushState(null, '', to)
++  const depth = history.state?.quickMealDepth ?? 0
++  const state = { ...history.state, quickMealDepth: opts.replace ? depth : depth + 1 }
++  if (opts.replace) history.replaceState(state, '', to)
++  else history.pushState(state, '', to)
+   window.dispatchEvent(new PopStateEvent('popstate'))
+ }
+ 
+ export function back(fallback: string): void {
+-  if (history.length > 1) history.back()
+-  else navigate(fallback)
++  // Browser history also includes the embedding portfolio. Only go back
++  // when this prototype created the preceding navigation entry.
++  if ((history.state?.quickMealDepth ?? 0) > 0) history.back()
++  else navigate(fallback, { replace: true })
+ }
