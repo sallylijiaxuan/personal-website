@@ -1,10 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { projects } from './projects';
 import { TabbyArt, TabbyStory } from './Tabby';
 import { WeTrackArt, WeTrackStory } from './WeTrack';
 import Kava from './Kava';
 import Brattle from './Brattle';
 import Echo from './Echo';
+import SlideProject from './SlideProject';
+import { slideProjects } from './slideProjects';
+import EchoCoverText from './EchoCoverText';
+import TikTokResearch from './TikTokResearch';
 import './styles.css';
 import './editorial.css';
 
@@ -44,15 +48,15 @@ function ProjectCard({ project }) {
  </article>;
 }
 const otherWork = [
+ { title: 'TikTok & consumption', type: 'CONSUMER RESEARCH', description: 'A survey study of TikTok screen time, promotional attitudes, and consumption, with 139 responses.', image: '/images/portfolio/tiktok.png', href: '/projects/tiktok/', action: 'explore the research', local: true },
+ { title: 'Bumble', type: 'PLATFORM & COMMUNICATION ANALYSIS', description: 'An analysis of how platform mechanics, communication, and user expectations shape trust and connection.', image: '/images/portfolio/bumble.jpg', href: '/projects/bumble/', action: 'explore the project', local: true },
+ { title: 'REI Co-op', type: 'ADVERTISING · STRATEGY', description: 'A strategy and creative proposal welcoming younger outdoor beginners: Bring Your Imperfections.', image: '/images/portfolio/rei.jpg', href: '/projects/rei/', action: 'explore the project', local: true },
+ { title: 'Fubo', type: 'ADVERTISING · MEDIA PLANNING', description: 'A sports-family creative concept connected to audience profiles, channel roles, and a seasonal media plan.', image: '/images/portfolio/fubo.jpg', href: '/projects/fubo/', action: 'explore the project', local: true },
+ { title: 'Mental Health', type: 'ADVERTISING · INTEGRATED CAMPAIGN', description: 'Face Yourself: an integrated awareness concept exploring what “I’m fine” can leave unsaid.', image: '/images/portfolio/mental.jpg', href: '/projects/mental-health/', action: 'explore the project', local: true },
+ { title: 'Fanta', type: 'ADVERTISING · OUT OF HOME', description: 'International flavors as arriving travelers, with a poster series and a flavor-discovery concept.', image: '/images/portfolio/fanta.jpg', href: '/projects/fanta/', action: 'explore the project', local: true },
+ { title: 'KAVA', type: 'GRAPHIC DESIGN · INDESIGN', description: 'A Greek-inspired palette and dotted price guides for a clearer restaurant menu.', image: '/images/project/kava/redesign-1.png', href: '/projects/kava/', action: 'view the redesign', local: true },
  { title: 'ECHO', type: 'EDITORIAL DESIGN · ILLUSTRATOR & INDESIGN', description: 'A music-publication brand and an Adele “Then & Now” issue, designed with a fashion-magazine approach.', image: '/images/project/echo/zine-1.png', href: '/projects/echo/', action: 'explore the zine', local: true },
  { title: 'Love & Transcendence', type: 'GRAPHIC DESIGN · PHOTOSHOP', description: 'Three films, one theme: a poster series for a Brattle design assignment.', image: '/images/project/brattle/posters-1.png', href: '/projects/brattle/', action: 'view the poster series', local: true },
- { title: 'KAVA', type: 'GRAPHIC DESIGN · INDESIGN', description: 'A Greek-inspired palette and dotted price guides for a clearer restaurant menu.', image: '/images/project/kava/redesign-1.png', href: '/projects/kava/', action: 'view the redesign', local: true },
- { title: 'REI Co-op', type: 'ADVERTISING · STRATEGY', description: 'A strategy and creative brief exploring a brand through an advertising lens.', image: '/images/portfolio/rei.jpg', href: 'https://www.canva.com/design/DAGDLDlO4Gw/3QswtHoqIzAY6X3DXK0b1g/edit', action: 'view the brief' },
- { title: 'Mental Health', type: 'ADVERTISING · INTEGRATED CAMPAIGN', description: 'An integrated mental-health campaign.', image: '/images/portfolio/mental.jpg', href: 'https://www.canva.com/design/DAGDSLR0p_w/yrRbrxoN6iKSCWC9tmQX0A/edit', action: 'view the campaign' },
- { title: 'Fubo', type: 'ADVERTISING · MEDIA PLANNING', description: 'An advertising plan for Fubo.', image: '/images/portfolio/fubo.jpg', href: 'https://www.canva.com/design/DAF0KG5g3hM/CsiK_-Bb5fPUYRctbc6MvQ/edit', action: 'view the plan' },
- { title: 'Fanta', type: 'ADVERTISING · OUT OF HOME', description: 'An out-of-home campaign for Fanta.', image: '/images/portfolio/fanta.jpg', href: 'https://www.canva.com/design/DAGozajVSKA/OIx6-2j1FmWdJsZZjP-1xw/edit', action: 'view the campaign' },
- { title: 'TikTok & consumption', type: 'CONSUMER RESEARCH', description: 'Exploring the effect of TikTok on college students’ consumption.', image: '/images/portfolio/tiktok.png', href: 'https://docs.google.com/presentation/d/17YxfokDCOJL4zePHipWLgu1bADTQNHcZV3qpgfw0VgU/edit?usp=sharing', action: 'view the research' },
- { title: 'Bumble', type: 'ADVERTISING · BRAND ANALYSIS', description: 'A brand analysis of Bumble.', image: '/images/portfolio/bumble.jpg', href: 'https://docs.google.com/presentation/d/18G45qWlULFj-8Euj87KVtNOC5RlI4gKvNWWDI4K4db4/edit?usp=sharing', action: 'view the analysis' },
 ];
 function OtherWork() {
  const gallery = useRef(null);
@@ -61,7 +65,7 @@ function OtherWork() {
   if (!card) return;
   gallery.current.scrollBy({ left: direction * (card.getBoundingClientRect().width + 26), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
  }
- return <section className="other-work wrap" id="more-work"><div className="section-heading"><CoastalCutout kind="oyster" className="other-oyster" /><div><span className="eyebrow">a different side of my toolkit</span><h2>more things I’ve made</h2></div><p>campaigns, consumer research, creative strategy, and graphic design.</p></div><div className="gallery-toolbar"><span>scroll to explore · {otherWork.length} projects</span><div><button type="button" onClick={() => scrollGallery(-1)} aria-label="Scroll to previous projects" aria-controls="other-work-gallery">←</button><button type="button" onClick={() => scrollGallery(1)} aria-label="Scroll to next projects" aria-controls="other-work-gallery">→</button></div></div><div className="other-grid" id="other-work-gallery" ref={gallery} tabIndex={0} role="region" aria-label="More projects — horizontally scrollable gallery">{otherWork.map(item => <a className="other-card" key={item.title} href={item.href} target={item.local ? undefined : "_blank"} rel={item.local ? undefined : "noopener noreferrer"}><div className="other-image"><img src={item.image} alt={`${item.title} project preview`} loading="lazy" /></div><span className="eyebrow">{item.type}</span><h3>{item.title}</h3><p>{item.description}</p><span className="text-link">{item.action} ↗</span></a>)}</div></section>;
+ return <section className="other-work wrap" id="more-work"><div className="section-heading"><CoastalCutout kind="oyster" className="other-oyster" /><div><span className="eyebrow">a different side of my toolkit</span><h2>more things I’ve made</h2></div><p>campaigns, consumer research, creative strategy, and graphic design.</p></div><div className="gallery-toolbar"><span>scroll to explore · {otherWork.length} projects</span><div><button type="button" onClick={() => scrollGallery(-1)} aria-label="Scroll to previous projects" aria-controls="other-work-gallery">←</button><button type="button" onClick={() => scrollGallery(1)} aria-label="Scroll to next projects" aria-controls="other-work-gallery">→</button></div></div><div className="other-grid" id="other-work-gallery" ref={gallery} tabIndex={0} role="region" aria-label="More projects — horizontally scrollable gallery">{otherWork.map(item => <a className="other-card" key={item.title} href={item.href} target={item.local ? undefined : "_blank"} rel={item.local ? undefined : "noopener noreferrer"}><div className={`other-image${item.title === 'ECHO' ? ' echo-gallery-preview' : ''}`}>{item.title === 'ECHO' ? <div className="echo-issue-cover echo-gallery-cover"><img src={item.image} alt="ECHO magazine cover featuring Adele" loading="lazy" /><EchoCoverText /></div> : <img src={item.image} alt={`${item.title} project preview`} loading="lazy" />}</div><span className="eyebrow">{item.type}</span><h3>{item.title}</h3><p>{item.description}</p><span className="text-link">{item.action} ↗</span></a>)}</div></section>;
 }
 function Home() { return <>
 <section className="editorial-cover wrap" aria-labelledby="cover-title">
@@ -93,7 +97,20 @@ function CaseStudy({ project }) {
 <div className="next-project"><span className="eyebrow">keep exploring</span><a href={`/projects/${projects[(projects.findIndex(item => item.slug === project.slug) + 1) % projects.length].slug}/`}>{projects[(projects.findIndex(item => item.slug === project.slug) + 1) % projects.length].title} ↗</a></div></article>;
 }
 export default function App() {
+ // Fragment targets exist only after React renders the destination page.
+ useLayoutEffect(() => {
+  function scrollToSection() {
+   const id = window.location.hash.slice(1);
+   if (!id) return;
+   let target;
+   try { target = document.getElementById(decodeURIComponent(id)); } catch { return; }
+   target?.scrollIntoView({ behavior: 'instant', block: 'start' });
+  }
+  scrollToSection();
+  window.addEventListener('hashchange', scrollToSection);
+  return () => window.removeEventListener('hashchange', scrollToSection);
+ }, []);
  const slug = window.location.pathname.split('/').filter(Boolean)[1];
  const project = projects.find(item => item.slug === slug);
- return <><a className="skip" href="#main">Skip to content</a><Header /><main id="main">{slug === 'echo' ? <Echo /> : slug === 'brattle' ? <Brattle /> : slug === 'kava' ? <Kava /> : project ? <CaseStudy project={project} /> : <Home />}</main><Footer /></>;
+ return <><a className="skip" href="#main">Skip to content</a><Header /><main id="main">{slideProjects[slug] ? <SlideProject slug={slug} /> : slug === 'tiktok' ? <TikTokResearch /> : slug === 'echo' ? <Echo /> : slug === 'brattle' ? <Brattle /> : slug === 'kava' ? <Kava /> : project ? <CaseStudy project={project} /> : <Home />}</main><Footer /></>;
 }
