@@ -1,18 +1,5 @@
 export const projects = [
   {
-    "slug": "focuspet",
-    "title": "FocusPet",
-    "subtitle": "finding focus, with room for real life",
-    "description": "A desktop companion exploring a gentler approach to staying focused — with selective blocking, gamified feedback, and space to pause.",
-    "tags": [
-      "user research",
-      "product & engineering",
-      "iteration"
-    ],
-    "category": "01 / PRODUCTIVITY & WELLBEING",
-    "status": "2025 · FUNCTIONAL MVP"
-  },
-  {
     "slug": "quick-meal",
     "title": "Quick Meal",
     "subtitle": "a meal that fits, with fewer decisions to get there",
@@ -22,8 +9,34 @@ export const projects = [
       "prioritization",
       "MVP strategy"
     ],
-    "category": "02 / FOOD DISCOVERY & DECISION MAKING",
+    "category": "01 / FOOD DISCOVERY & DECISION MAKING",
     "status": "2026 · RESEARCH + PROTOTYPE"
+  },
+  {
+    "slug": "focuspet",
+    "title": "FocusPet",
+    "subtitle": "finding focus, with room for real life",
+    "description": "A desktop companion exploring a gentler approach to staying focused — with selective blocking, gamified feedback, and space to pause.",
+    "tags": [
+      "user research",
+      "product & engineering",
+      "iteration"
+    ],
+    "category": "02 / PRODUCTIVITY & WELLBEING",
+    "status": "2025 · FUNCTIONAL MVP"
+  },
+  {
+    "slug": "teamslot",
+    "title": "TeamSlot",
+    "subtitle": "a meeting time with the right people in the room",
+    "description": "A group scheduling prototype that brings required attendees, team representation, and availability into one decision—and explains which times work.",
+    "tags": [
+      "attendance rules",
+      "product development",
+      "Lovable"
+    ],
+    "category": "03 / GROUP SCHEDULING & COORDINATION",
+    "status": "SOLO CLASS PROJECT · WORKING PROTOTYPE"
   },
   {
     "slug": "tabby",
@@ -35,7 +48,7 @@ export const projects = [
       "interaction design",
       "product & engineering"
     ],
-    "category": "03 / EVERYDAY TOOLS & SHARED EXPENSES",
+    "category": "04 / EVERYDAY TOOLS & SHARED EXPENSES",
     "status": "WEB APP · LOCAL-FIRST"
   },
   {
@@ -48,7 +61,7 @@ export const projects = [
       "expense tracking",
       "multi-currency"
     ],
-    "category": "04 / PERSONAL FINANCE & MOBILE",
+    "category": "05 / PERSONAL FINANCE & MOBILE",
     "status": "ANDROID APP"
   }
 ];

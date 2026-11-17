@@ -12,6 +12,7 @@ export default defineConfig({
         fanta: fileURLToPath(new URL('./projects/fanta/index.html', import.meta.url)),
 
         tiktok: fileURLToPath(new URL('./projects/tiktok/index.html', import.meta.url)),
+        teamslot: fileURLToPath(new URL('./projects/teamslot/index.html', import.meta.url)),
         echo: fileURLToPath(new URL('./projects/echo/index.html', import.meta.url)),
         brattle: fileURLToPath(new URL('./projects/brattle/index.html', import.meta.url)),
         kava: fileURLToPath(new URL('./projects/kava/index.html', import.meta.url)),

@@ -9,6 +9,7 @@ import SlideProject from './SlideProject';
 import { slideProjects } from './slideProjects';
 import EchoCoverText from './EchoCoverText';
 import TikTokResearch from './TikTokResearch';
+import TeamSlot, { TeamSlotArt } from './TeamSlot';
 import './styles.css';
 import './editorial.css';
 
@@ -38,7 +39,7 @@ function FocusArt() {
 }
 function MealArt() { return (<div className="project-art meal-art"><div className="art-top"><span>QUICK MEAL / DOORDASH CONCEPT</span><span>LESS DECIDING. MORE DOING.</span></div><div className="meal-composition"><div className="meal-copy"><span className="mini-label">Hungry, with a deadline?</span><h3>Less scrolling.<br />Lunch sorted.</h3><div className="constraint"><span>◷ &nbsp;30 minutes</span><span>↳ &nbsp;$20 all-in</span></div><p>A shorter path to a meal that fits.</p></div><div className="phone"><div className="phone-notch"></div><div className="phone-header">‹ <strong>Quick Meal</strong><span>☷</span></div><h4>Good food.<br />Within your limits.</h4><div className="phone-chips"><span>30 min ⌄</span><span>Up to $20 ⌄</span></div><div className="food-image"><span>🥗</span></div><div className="food-info"><strong>Something filling.</strong><span>Estimated arrival · 20–30 min</span><div><b>$18.73</b><small>Estimated all-in total</small></div></div><p className="phone-note">Illustrative meal · estimates, not guarantees</p></div></div><span className="art-caption">PORTFOLIO ILLUSTRATION · ACADEMIC TEAM CONCEPT</span></div>
 ); }
-function ProjectArt({ slug }) { return slug === 'focuspet' ? <FocusArt /> : slug === 'tabby' ? <TabbyArt /> : slug === 'wetrack' ? <WeTrackArt /> : <MealArt />; }
+function ProjectArt({ slug }) { return slug === 'teamslot' ? <TeamSlotArt /> : slug === 'focuspet' ? <FocusArt /> : slug === 'tabby' ? <TabbyArt /> : slug === 'wetrack' ? <WeTrackArt /> : <MealArt />; }
 function ProjectCard({ project }) {
  return <article className={`project feature-${project.slug}`}>
  <div className="project-art project-art-mount"><span className={`printed-paper-tab paper-${project.slug}`} aria-hidden="true" /><ProjectArt slug={project.slug} /></div>
@@ -69,13 +70,13 @@ function OtherWork() {
 }
 function Home() { return <>
 <section className="editorial-cover wrap" aria-labelledby="cover-title">
-<div className="edition-line"><span>product · research · engineering</span><span>THE PORTFOLIO EDIT / SALLY LI</span></div>
-<div className="cover-heading"><span className="cover-kicker">a study in</span><h1 id="cover-title">everyday <em>possibility.</em></h1><p className="cover-deck">Sally Li · Product builder.<br />Connecting people, technology, and a little creative instinct.</p></div>
+<div className="edition-line"><span>Product · Technology · Creativity</span><span>PORTFOLIO / SALLY LI</span></div>
+<div className="cover-heading"><span className="cover-kicker">a study in</span><h1 id="cover-title">everyday <em>possibility.</em></h1><p className="cover-deck">Sally Li · Product builder.<br />Bringing people, technology, and creative thinking together.</p></div>
 <div className="cover-bottom"><span>SAN JOSE, CA / SOFTWARE MANAGEMENT @ CMU</span><a className="text-link" href="#about">turn the page ↓</a><a href="#work">skip to the projects ↗</a></div>
 </section>
 <section className="intro-spread wrap" aria-labelledby="intro-title">
 <div className="cover-spread" id="about">
- <div className="cover-intro"><span className="eyebrow">the person behind the products</span><h2 id="intro-title">a little about <em>me ◡̈</em></h2><p>I studied computer science and advertising at Boston University—one taught me how to build things, the other made me think about who they’re for. Now, I’m bringing those perspectives together through a master’s in Software Management at Carnegie Mellon.</p><p>That combination drew me to product management. I want to help shape what gets built, understand the people using it, and work with a team to bring it to life. I’m especially interested in everyday products where thoughtful details can make someone’s day easier.</p><a className="text-link" href="#work">Explore the selected stories ↓</a><a className="cover-resume" href="/resume/SallyLi_Resume.pdf" target="_blank" rel="noopener">the longer story: my résumé ↗</a></div>
+ <div className="cover-intro"><span className="eyebrow">the person behind the products</span><h2 id="intro-title">a little about <em>me ◡̈</em></h2><p>I studied computer science and advertising at Boston University. One taught me how to build things; the other made me think about who they’re for. Now, I’m bringing those perspectives together through a master’s in Software Management at Carnegie Mellon.</p><p>I’m drawn to product management because I enjoy understanding people’s needs and working with a team to turn ideas into useful products. I’m especially interested in everyday tools where thoughtful details can make someone’s day easier.</p><a className="text-link" href="#work">Explore the selected stories ↓</a><a className="cover-resume" href="/resume/SallyLi_Resume.pdf" target="_blank" rel="noopener">the longer story: my résumé ↗</a></div>
  <div className="cover-collage" aria-label="Sally and photographs from her travels"><CoastalScene kind="reader" className="intro-reader" />
   <figure className="collage-city"><img src="/images/photo/4.JPG" alt="A moment in London, photographed by Sally" /><figcaption>OBSERVATIONS / LONDON</figcaption></figure>
   <figure className="collage-portrait"><img src="/images/me.jpg" alt="Sally Li" loading="lazy" /><figcaption>Sally Li / always curious</figcaption></figure>
@@ -112,5 +113,5 @@ export default function App() {
  }, []);
  const slug = window.location.pathname.split('/').filter(Boolean)[1];
  const project = projects.find(item => item.slug === slug);
- return <><a className="skip" href="#main">Skip to content</a><Header /><main id="main">{slideProjects[slug] ? <SlideProject slug={slug} /> : slug === 'tiktok' ? <TikTokResearch /> : slug === 'echo' ? <Echo /> : slug === 'brattle' ? <Brattle /> : slug === 'kava' ? <Kava /> : project ? <CaseStudy project={project} /> : <Home />}</main><Footer /></>;
+ return <><a className="skip" href="#main">Skip to content</a><Header /><main id="main">{slideProjects[slug] ? <SlideProject slug={slug} /> : slug === 'tiktok' ? <TikTokResearch /> : slug === 'teamslot' ? <TeamSlot /> : slug === 'echo' ? <Echo /> : slug === 'brattle' ? <Brattle /> : slug === 'kava' ? <Kava /> : project ? <CaseStudy project={project} /> : <Home />}</main><Footer /></>;
 }

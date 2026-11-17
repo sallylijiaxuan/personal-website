@@ -1638,6 +1638,56 @@ footer { border-top: 3px double #002fa7; }
 }
 .echo-reader-dialog .echo-reader-restart { position: static; transform: none; width: auto; margin: 22px 0; align-items: center; }
 
+/* TeamSlot: a field note on finding common time. */
+.teamslot-art { background: #e5eadf; padding: 28px 32px 22px; color: #253e33; overflow: hidden; }
+.teamslot-composition { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 32px; padding: 46px 10px; }
+.teamslot-art-copy h3 { font: clamp(30px, 4vw, 58px)/1.05 var(--serif); letter-spacing: -1.7px; margin: 20px 0; }
+.teamslot-art-copy p { font-size: 13px; max-width: 200px; line-height: 1.8; }
+.teamslot-people { display: flex; margin-top: 24px; }
+.teamslot-people span { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 50%; border: 2px solid #e5eadf; background: #becdb8; margin-right: -5px; font-size: 10px; }
+.teamslot-people span:nth-child(2) { background: #e1c7aa; }
+.teamslot-people span:nth-child(3) { background: #b9cbd2; }
+.teamslot-window { background: #fbfcf7; border: 1px solid #bac5b5; box-shadow: 8px 10px 0 #253e3309; transform: rotate(-2deg); }
+.teamslot-window-bar { display: flex; justify-content: space-between; align-items: center; padding: 15px 18px; border-bottom: 1px solid #dce2d6; }
+.teamslot-window-bar strong { font: 23px/1 var(--serif); }
+.teamslot-window-bar > span, .teamslot-micro { font-size: 9px; }
+.teamslot-window-body { padding: 22px 18px; }
+.teamslot-window-body .eyebrow { font-size: 9px; }
+.teamslot-rule { display: flex; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px solid #e1e5db; font-size: 11px; }
+.teamslot-rule > span:last-child { color: #697765; }
+.teamslot-slots { display: flex; gap: 6px; margin: 22px 0 14px; }
+.teamslot-slots button { flex: 1; padding: 10px 3px; background: transparent; border: 1px solid #bac5b5; color: #253e33; font: 10px/1.4 var(--sans); cursor: pointer; }
+.teamslot-slots button[aria-pressed="true"] { background: #253e33; border-color: #253e33; color: #fff; }
+.teamslot-slots button:focus-visible { outline: 2px solid #253e33; outline-offset: 3px; }
+.teamslot-verdict { background: #e8efdf; padding: 14px; min-height: 100px; }
+.teamslot-verdict > span { font-size: 11px; font-weight: 600; }
+.teamslot-verdict p { font-size: 11px; line-height: 1.7; margin: 8px 0 0; }
+.teamslot-verdict.is-blocked { background: #f3e6d9; }
+.teamslot-micro { display: block; margin-top: 14px; color: #697765; }
+.teamslot-art .art-caption { font-size: 9px; }
+.teamslot-case > .teamslot-art { margin-top: 32px; }
+.teamslot-case .teamslot-composition { padding: 55px 35px; gap: 65px; }
+.teamslot-case .case-intro > p { max-width: 700px; line-height: 1.9; }
+.teamslot-workflow, .teamslot-decisions { margin: 65px 0; }
+.teamslot-workflow h2, .teamslot-decisions > h2 { font: clamp(30px, 4vw, 45px)/1.15 var(--serif); margin: 15px 0 32px; }
+.teamslot-workflow ol { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px; }
+.teamslot-workflow li { border-top: 1px solid var(--line); padding-top: 18px; }
+.teamslot-step { font: italic 27px/1 var(--serif); color: #65775b; }
+.teamslot-workflow h3 { font: 22px/1.15 var(--serif); margin: 20px 0 12px; }
+.teamslot-workflow li p { font-size: 13px; line-height: 1.8; color: var(--muted); }
+#teamslot-demo { scroll-margin-top: 30px; }
+@media (max-width: 700px) {
+ .teamslot-art { padding: 20px 16px; }
+ .teamslot-art .art-top { gap: 10px; font-size: 8px; }
+ .teamslot-composition, .teamslot-case .teamslot-composition { grid-template-columns: 1fr; padding: 25px 4px; gap: 28px; }
+ .teamslot-art-copy h3 { font-size: 40px; }
+ .teamslot-art-copy p { max-width: none; }
+ .teamslot-people { display: none; }
+ .teamslot-window { transform: none; }
+ .teamslot-workflow ol { grid-template-columns: 1fr; gap: 20px; }
+ .teamslot-workflow h3 { margin-top: 12px; }
+}
+
 /* TikTok research: survey evidence presented as an editorial research note. */
 .tiktok-research-opening { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; align-items: center; padding: 42px; background: #eee2de; }
 .tiktok-research-opening h2 { font: clamp(32px, 4vw, 48px)/1.1 var(--serif); margin: 20px 0; }
@@ -1721,3 +1771,52 @@ footer { border-top: 3px double #002fa7; }
  .slide-case-gallery .section-heading { align-items: flex-start; gap: 18px; flex-direction: column; }
 }
 @media (max-width: 420px) { .slide-case-process ol { grid-template-columns: 1fr; } }
+
+/* Featured previews alternate with the current project order. */
+@media (min-width: 901px) {
+ .work > .project:nth-of-type(odd) { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+ .work > .project:nth-of-type(odd) > .project-art { grid-column: 2; }
+ .work > .project:nth-of-type(odd) > .project-meta,
+ .work > .project:nth-of-type(odd) > .project-description,
+ .work > .project:nth-of-type(odd) > .project-footer { grid-column: 1; }
+ .work > .project:nth-of-type(even) { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); }
+ .work > .project:nth-of-type(even) > .project-art { grid-column: 1; }
+ .work > .project:nth-of-type(even) > .project-meta,
+ .work > .project:nth-of-type(even) > .project-description,
+ .work > .project:nth-of-type(even) > .project-footer { grid-column: 2; }
+}
+
+/* TeamSlot keeps its illustration and caption in separate rows. */
+.work > .feature-teamslot > .project-art-mount { height: auto; min-height: 0; }
+.work > .project .project-art-mount > .teamslot-art { display: flex; flex-direction: column; width: 100%; min-height: 440px; padding: 24px 22px 18px; }
+.work > .project .teamslot-composition { flex: 1; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 18px; padding: 26px 0; }
+.work > .project .teamslot-art-copy h3 { font-size: clamp(24px, 2.4vw, 32px); letter-spacing: -.7px; line-height: 1.12; margin: 14px 0; }
+.work > .project .teamslot-art-copy p { font-size: 11px; line-height: 1.7; }
+.work > .project .teamslot-people { margin-top: 18px; }
+.work > .project .teamslot-people span { width: 28px; height: 28px; font-size: 9px; }
+.work > .project .teamslot-window { min-width: 0; }
+.work > .project .teamslot-window-bar { padding: 12px; gap: 8px; flex-wrap: wrap; }
+.work > .project .teamslot-window-bar strong { font-size: 20px; }
+.work > .project .teamslot-window-body { padding: 15px 12px; }
+.work > .project .teamslot-rule { padding: 10px 0; font-size: 10px; gap: 6px; }
+.work > .project .teamslot-slots { margin-top: 16px; gap: 4px; }
+.work > .project .teamslot-slots button { font-size: 9px; }
+.work > .project .teamslot-verdict { padding: 10px; min-height: 94px; }
+.work > .project .teamslot-art > .art-caption { position: static; display: block; margin: auto 0 0; padding-top: 12px; font-size: 9px; line-height: 1.5; }
+@media (max-width: 600px) {
+ .work > .project .project-art-mount > .teamslot-art { min-height: 0; padding: 20px 16px 16px; }
+ .work > .project .teamslot-composition { grid-template-columns: 1fr; gap: 18px; padding: 20px 0; }
+ .work > .project .teamslot-art-copy h3 { font-size: 27px; }
+ .work > .project .teamslot-art-copy h3 br { display: none; }
+ .work > .project .teamslot-art-copy h3 em::before { content: ' '; }
+ .work > .project .teamslot-art-copy p { margin-bottom: 0; }
+}
+
+/* TeamSlot gets its own small checkerboard print. */
+.paper-teamslot {
+ background-color: #efcb32;
+ background-image: conic-gradient(#002fa7 25%, #efcb32 0 50%, #002fa7 0 75%, #efcb32 0);
+ background-size: 28px 28px;
+ transform: rotate(-4deg);
+}
+@media (max-width: 600px) { .paper-teamslot { background-size: 22px 22px; } }
