@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import FeaturedProjectHeading from './FeaturedProjectHeading';
+import { HomepageTeamSlotArt } from './HomepageIllustrations';
 
 export function TeamSlotArt() {
  const [option, setOption] = useState(0);
@@ -12,8 +14,8 @@ export function TeamSlotArt() {
 
 export default function TeamSlot() {
  return <article className="case-page wrap teamslot-case"><a className="text-link" href="/#work">← all selected work</a>
-  <header className="case-page-heading"><span className="eyebrow">GROUP SCHEDULING · SOLO CLASS PROJECT</span><h1>TeamSlot</h1><p>a meeting time with the right people in the room</p></header>
-  <TeamSlotArt />
+  <FeaturedProjectHeading slug="teamslot" />
+  <HomepageTeamSlotArt />
   <div className="case-actions"><a className="text-link" href="https://quick-team-time.lovable.app/" target="_blank" rel="noopener noreferrer">try TeamSlot ↗</a><a className="text-link" href="#teamslot-demo">watch the walkthrough ↓</a></div>
   <div className="case-study"><div className="case-intro"><span className="eyebrow">A CLASS PROJECT / AN EVERYDAY FRUSTRATION</span><h4>Everyone’s busy.<br />But who needs to be there?</h4><p>Coordinating group meetings had been bothering me long before this class project. The assignment gave me an opportunity to explore something I’d already been thinking about: how to find a time that works for the people a meeting actually needs.</p><p>I built TeamSlot independently, owning the problem framing, product decisions, and implementation from setup through the calendar handoff.</p></div>
   <div className="case-grid"><div><h5>the problem</h5><p>A popular time isn’t always a useful meeting time. A discussion might need a particular decision-maker and representation from several teams. Availability alone leaves the organizer to work out whether those requirements are met.</p></div><div><h5>the product question</h5><p>How might we bring attendance requirements into scheduling, so organizers can see which times work and understand the tradeoffs when they don’t?</p></div></div>

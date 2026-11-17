@@ -1820,3 +1820,307 @@ footer { border-top: 3px double #002fa7; }
  transform: rotate(-4deg);
 }
 @media (max-width: 600px) { .paper-teamslot { background-size: 22px 22px; } }
+
+/* Allow longer homepage project copy to wrap within its existing columns. */
+.work > .project > .project-description,
+.work > .project .project-description > div { min-width: 0; }
+.work > .project .project-subtitle { white-space: normal; overflow-wrap: break-word; }
+
+/* WeTrack: original screens arranged around an explorable central view. */
+.wetrack-art { display: flex; flex-direction: column; gap: 18px; }
+.wetrack-screen-picker { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px 12px; }
+.wetrack-screen-picker button { background: transparent; border: 0; border-bottom: 1px solid transparent; padding: 5px 0; color: inherit; font: 10px/1.5 var(--sans); cursor: pointer; }
+.wetrack-screen-picker button[aria-pressed="true"] { border-bottom-color: currentColor; }
+.wetrack-screen-picker button:focus-visible { outline: 1px solid currentColor; outline-offset: 3px; }
+.wetrack-art .wetrack-screens { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr); align-items: center; gap: 0; flex: 1; min-height: 0; height: auto; padding: 6px 8px 16px; }
+.wetrack-device { margin: 0; min-width: 0; position: relative; }
+.wetrack-art .wetrack-device img { display: block; width: 100%; max-height: 100%; height: auto; object-fit: contain; border: 4px solid #344a47; border-radius: 17px; background: #f5f7f8; box-shadow: 0 9px 20px #1c393520; }
+.wetrack-device-left { transform: translateX(10px) rotate(-7deg) scale(.9); }
+.wetrack-device-right { transform: translateX(-10px) rotate(7deg) scale(.9); }
+.wetrack-device-main { z-index: 1; }
+.wetrack-device-main figcaption { position: absolute; top: calc(100% + 7px); width: 100%; text-align: center; font-size: 9px; letter-spacing: .06em; }
+.wetrack-art > .art-caption,
+.work > .project .wetrack-art > .art-caption { position: static; display: block; margin: auto 0 0; padding-top: 14px; font-size: 9px; line-height: 1.5; }
+.work > .project .project-art-mount > .wetrack-art { padding: 22px 20px 16px; }
+.work > .project .wetrack-art .wetrack-screens { width: min(100%, 375px); margin-inline: auto; }
+.case-page > .wetrack-art .wetrack-screens { width: min(100%, 650px); margin-inline: auto; }
+@media (max-width: 900px) {
+ .work > .feature-wetrack > .project-art-mount { height: auto; min-height: 0; }
+ .work > .project .project-art-mount > .wetrack-art { min-height: 0; }
+ .work > .project .wetrack-art .wetrack-screens { width: min(100%, 340px); }
+}
+@media (max-width: 600px) {
+ .wetrack-art { gap: 12px; }
+ .wetrack-screen-picker { gap: 4px 10px; }
+ .wetrack-screen-picker button { font-size: 9px; }
+ .wetrack-art .wetrack-device img { border-width: 3px; border-radius: 12px; }
+}
+
+/* Case-study phone walkthrough, with a scrollable screen above fixed navigation. */
+.wetrack-phone-preview { display: grid; grid-template-columns: 1fr 1fr; align-items: center; column-gap: 65px; row-gap: 24px; background: #d6e4df; padding: 45px 55px 25px; }
+.wetrack-phone-intro h2 { font: clamp(34px, 4vw, 52px)/1.1 var(--serif); margin: 20px 0; max-width: 340px; }
+.wetrack-phone-intro p { max-width: 320px; font-size: 15px; line-height: 1.9; }
+.wetrack-phone-hint { display: block; font-size: 11px; line-height: 1.9; color: var(--muted); margin-top: 25px; }
+.wetrack-phone { width: min(100%, 320px); aspect-ratio: 348 / 754; display: flex; flex-direction: column; padding: 10px 7px 8px; border: 3px solid #384c48; border-radius: 35px; background: #263833; box-shadow: 10px 15px 30px #213b3426; justify-self: center; overflow: hidden; }
+.wetrack-phone-speaker { height: 5px; width: 42px; background: #10231e; border-radius: 5px; margin: 2px auto 10px; flex-shrink: 0; }
+.wetrack-phone-viewport { min-height: 0; flex: 1; overflow-y: auto; overscroll-behavior-y: contain; background: #f5f7f9; border-radius: 20px 20px 0 0; scrollbar-width: thin; scrollbar-color: #b1c9bd transparent; }
+.wetrack-phone-viewport:focus-visible { outline: 2px solid #3c97d2; outline-offset: -3px; }
+.wetrack-screenshot-slice { display: block; width: 100%; height: auto; }
+.wetrack-phone-nav { display: grid; grid-template-columns: 1fr 1.25fr 1fr 1fr 1fr; align-items: end; flex-shrink: 0; background: #fff; border-top: 1px solid #e9edeb; padding: 8px 3px 10px; border-radius: 0 0 25px 25px; }
+.wetrack-phone-nav button { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 0; border: 0; background: transparent; color: #555f5a; padding: 3px 0; font: 8px/1.4 var(--sans); cursor: pointer; }
+.wetrack-phone-nav button > svg { width: 24px; height: 24px; }
+.wetrack-phone-nav button[aria-pressed="true"] { color: #136b9c; }
+.wetrack-phone-nav button:focus-visible { outline: 2px solid #136b9c; border-radius: 6px; }
+.wetrack-phone-nav .wetrack-phone-add > svg { width: 38px; height: 38px; background: #e0f0ff; border-radius: 50%; padding: 7px; margin-top: -17px; }
+.wetrack-phone-disclosure { grid-column: 1 / -1; text-align: center; font-size: 10px; line-height: 1.7; margin: 0; color: var(--muted); }
+@media (max-width: 700px) {
+ .wetrack-phone-preview { grid-template-columns: 1fr; padding: 28px 20px 20px; gap: 25px; }
+ .wetrack-phone-intro h2 { font-size: 34px; margin: 12px 0; }
+ .wetrack-phone-intro p { margin-bottom: 0; }
+ .wetrack-phone-hint { margin-top: 12px; }
+}
+
+/* Fit the whole device and bottom navigation within the visible screen. */
+.wetrack-phone {
+ width: min(100%, 320px, calc((100svh - 150px) * 348 / 754));
+}
+
+/* Float the add action above the scrollable screen and navigation surface. */
+.wetrack-phone-viewport { position: relative; z-index: 0; }
+.wetrack-phone-nav { position: relative; z-index: 2; overflow: visible; }
+.wetrack-phone-nav .wetrack-phone-add { position: relative; align-self: stretch; justify-content: flex-end; }
+.wetrack-phone-nav .wetrack-phone-add > svg {
+ position: absolute;
+ top: -25px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 46px;
+ height: 46px;
+ margin-top: 0;
+ padding: 10px;
+ box-shadow: 0 3px 7px #26383325;
+}
+
+/* Match the original app's pale-blue floating add action on every screen. */
+.wetrack-phone-nav .wetrack-phone-add > svg {
+ top: -30px;
+ width: 54px;
+ height: 54px;
+ padding: 14px;
+ background: #e0f0ff;
+ color: #555f5a;
+ box-shadow: 0 3px 6px #00000024;
+}
+
+/* Fit updated homepage content within the original poster composition. */
+.homepage-meal-art .phone h4 { font-size: 14px; line-height: 1.25; margin: 12px 0 10px; }
+.homepage-meal-art .phone-chips { flex-wrap: wrap; gap: 4px; }
+.homepage-meal-art .phone-chips span { font-size: 9px; padding: 5px 6px; border: 1px solid #002fa7; }
+.homepage-meal-art .food-image { height: 65px; }
+.homepage-meal-art .food-image span { font-size: 48px; }
+.homepage-meal-art .food-info > strong { font-size: 13px; }
+.homepage-meal-art .food-info > span { font-size: 10px; line-height: 1.5; }
+.homepage-meal-art .food-info .meal-arrival { font-size: 9px; }
+.homepage-meal-art .food-info > .meal-total { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; padding: 7px; background: #ffcf14; border-radius: 5px; }
+.homepage-meal-art .meal-total b { font-size: 17px; }
+.homepage-meal-art .meal-total small { font-size: 9px; line-height: 1.4; }
+.work > .project .homepage-meal-art .meal-copy h3 { white-space: normal; }
+.work > .project .homepage-meal-art .meal-copy > p { display: block; font-size: 11px; line-height: 1.7; }
+.homepage-meal-art .constraint span { font-size: 10px; background: #ffcf14; }
+.homepage-focus-art .pet-face i { height: 3px; margin-top: 4px; }
+.homepage-focus-art .is-focusing .pet-face i { height: 9px; margin-top: 0; }
+.work > .project .homepage-focus-art .focus-controls > span { display: block; max-width: none; font-size: 10px; }
+.homepage-focus-art .focus-controls button { cursor: pointer; }
+
+/* Give only the FocusPet subtitle more horizontal room, preserving its type and poster. */
+@media (min-width: 1400px) {
+ .work > .feature-focuspet .project-subtitle {
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+ }
+}
+@media (max-width: 1399px) {
+ .work > .feature-focuspet .project-subtitle { width: auto; max-width: 100%; white-space: normal; }
+}
+
+/* Homepage poster copy stays scoped away from the case-study illustrations. */
+.homepage-teamslot-art .teamslot-window-body > .eyebrow { text-transform: none; letter-spacing: 0; }
+.work > .project .homepage-teamslot-art .teamslot-verdict { min-height: 112px; }
+.work > .project .homepage-tabby-art .tabby-receipt { width: 88%; max-width: 350px; margin-top: 15px; padding: 18px 22px; }
+.homepage-tabby-art .tabby-receipt h3 { font-size: 34px; margin: 10px 0 14px; }
+.homepage-tabby-art .receipt-item { font-size: 11px; padding: 5px 0; align-items: baseline; }
+.homepage-tabby-art .receipt-item > span:last-child { flex-shrink: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.homepage-tabby-art .receipt-total { margin-top: 5px; padding: 7px 0; }
+.homepage-tabby-art .receipt-shares { margin-top: 9px; }
+.homepage-tabby-art .receipt-shares > span { padding: 8px 10px; }
+.homepage-tabby-art .receipt-shares small { display: block; font-size: 9px; margin-top: 4px; }
+.homepage-tabby-art .receipt-shares strong { font-variant-numeric: tabular-nums; }
+.work > .project .homepage-tabby-art .tabby-receipt > p { display: block; font-size: 10px; line-height: 1.5; margin-top: 9px; }
+.work > .project .homepage-tabby-art > .art-caption { padding-top: 10px; }
+.work > .project .homepage-wetrack-art .wetrack-screens { grid-template-columns: minmax(0, .7fr) minmax(0, 1.65fr) minmax(0, .7fr); gap: 10px; width: min(100%, 420px); }
+.homepage-wetrack-art .wetrack-device-main { transform: none; }
+.homepage-wetrack-art .wetrack-device-left { transform: rotate(-5deg) scale(.9); }
+.homepage-wetrack-art .wetrack-device-right { transform: rotate(5deg) scale(.9); }
+.work > .project .homepage-wetrack-art .wetrack-device-main img { max-height: max(250px, calc(min(72svh, 560px) - 130px)); width: auto; max-width: 100%; margin-inline: auto; }
+@media (max-width: 900px) {
+ .work > .feature-tabby > .project-art-mount { height: auto; min-height: 0; }
+ .work > .project .project-art-mount > .homepage-tabby-art { height: auto; min-height: 0; padding-bottom: 18px; }
+ .work > .project .homepage-tabby-art > .art-caption { margin-top: 14px; }
+ .work > .project .homepage-wetrack-art .wetrack-screens { width: min(100%, 380px); }
+}
+
+/* Leave clear space for the existing poster footnotes. */
+.work > .project .project-art-mount > .homepage-teamslot-art { height: auto; }
+.work > .project .homepage-tabby-art .tabby-receipt h3 { font-size: 28px; margin: 8px 0 10px; }
+.work > .project .homepage-tabby-art .receipt-item { padding: 3px 0; }
+
+/* Keep single-line poster headers visible and let the receipt determine its height. */
+.work > .project .art-top > span:first-child { display: inline; }
+.work > .feature-tabby > .project-art-mount { height: auto; min-height: 0; }
+.work > .project .project-art-mount > .homepage-tabby-art { height: auto; min-height: 510px; padding-bottom: 18px; }
+.work > .project .homepage-tabby-art > .art-caption { position: static; flex-shrink: 0; margin-top: auto; padding-top: 16px; }
+.work > .project .homepage-wetrack-art .wetrack-screens { padding-bottom: 0; }
+.work > .project .homepage-wetrack-art .wetrack-device-main img { max-height: max(230px, calc(min(72svh, 560px) - 165px)); }
+@media (max-width: 900px) {
+ .work > .project .project-art-mount > .homepage-tabby-art { min-height: 0; }
+ .work > .project .homepage-tabby-art > .art-caption { margin-top: 14px; }
+ .work > .feature-quick-meal > .project-art-mount { height: auto; min-height: 0; }
+ .work > .project .project-art-mount > .homepage-meal-art { height: auto; min-height: 520px; }
+ .work > .project .homepage-meal-art .meal-composition { margin-bottom: 60px; }
+ .work > .feature-focuspet > .project-art-mount { height: auto; min-height: 400px; }
+ .work > .project .project-art-mount > .homepage-focus-art { height: 400px; }
+ .work > .project .homepage-focus-art .focus-window { top: 55px; transform: translateX(-50%); }
+ .work > .project .homepage-focus-art .focus-body h3 { font-size: 28px; }
+ .work > .project .homepage-focus-art .pet { width: 65px; height: 78px; right: 16px; top: 50px; }
+ .work > .project .homepage-focus-art .pet-face { left: 10px; top: 26px; gap: 22px; }
+ .homepage-focus-art .pet-face span { left: 12px; }
+}
+
+/* WeTrack homepage poster: one original screen paired with editorial copy. */
+.work > .project .homepage-wetrack-art .wetrack-screens {
+ grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+ width: 100%;
+ gap: 25px;
+ padding: 8px 10px 12px;
+}
+.wetrack-poster-copy { min-width: 0; }
+.wetrack-poster-copy .eyebrow { font-size: 9px; }
+.wetrack-poster-copy h3 { font: 34px/1.08 var(--serif); letter-spacing: -.7px; margin: 18px 0; }
+.wetrack-poster-copy p { font-size: 12px; line-height: 1.8; max-width: 190px; }
+.work > .project .homepage-wetrack-art .wetrack-device-main img { max-height: max(230px, calc(min(72svh, 560px) - 165px)); }
+@media (max-width: 600px) {
+ .work > .project .homepage-wetrack-art .wetrack-screens { gap: 14px; padding-inline: 0; }
+ .wetrack-poster-copy h3 { font-size: 27px; }
+ .wetrack-poster-copy p { font-size: 11px; }
+}
+
+/* Homepage WeTrack tabs live with the copy, leaving the phone its own column. */
+.homepage-wetrack-art .wetrack-poster-copy .wetrack-screen-picker { justify-content: flex-start; column-gap: 12px; row-gap: 5px; margin-top: 17px; }
+.homepage-wetrack-art .wetrack-changing-copy { display: grid; }
+.homepage-wetrack-art .wetrack-changing-copy > span { grid-area: 1 / 1; }
+.homepage-wetrack-art .wetrack-changing-copy > span[aria-hidden="true"] { visibility: hidden; }
+.work > .project .homepage-wetrack-art .wetrack-screens { padding-top: 0; padding-bottom: 16px; }
+.homepage-wetrack-art .wetrack-device-main { height: 360px; display: flex; justify-content: center; align-items: center; }
+.work > .project .homepage-wetrack-art .wetrack-device-main img { width: auto; height: auto; max-height: 100%; max-width: 100%; }
+@media (max-width: 600px) {
+ .homepage-wetrack-art .wetrack-device-main { height: 300px; }
+ .homepage-wetrack-art .wetrack-poster-copy .wetrack-screen-picker { gap: 5px 10px; margin-top: 12px; }
+}
+
+@media (min-width: 901px) {
+ .homepage-wetrack-art .wetrack-poster-copy .wetrack-screen-picker { flex-wrap: nowrap; column-gap: 8px; }
+ .homepage-wetrack-art .wetrack-poster-copy .wetrack-screen-picker button { white-space: nowrap; }
+}
+
+/* Distinguish the homepage screen controls from supporting copy. */
+.homepage-wetrack-art .wetrack-poster-copy .wetrack-screen-picker { gap: 6px; }
+.homepage-wetrack-art .wetrack-screen-picker button {
+ border: 1px solid #002fa755;
+ border-radius: 4px;
+ padding: 5px 6px;
+ background: #fff8e760;
+ transition: background-color .15s, border-color .15s;
+}
+.homepage-wetrack-art .wetrack-screen-picker button:hover { background: #fff8e7; border-color: #002fa7; }
+.homepage-wetrack-art .wetrack-screen-picker button[aria-pressed="true"] { background: #002fa7; border-color: #002fa7; color: #fff8e7; }
+.homepage-wetrack-art .wetrack-screen-picker button:focus-visible { outline: 2px solid #002fa7; outline-offset: 3px; }
+@media (min-width: 901px) {
+ .work > .project .homepage-wetrack-art .wetrack-screens { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 18px; }
+}
+@media (prefers-reduced-motion: reduce) { .homepage-wetrack-art .wetrack-screen-picker button { transition: none; } }
+
+/* Balance each changing sentence independently to avoid a lone final word. */
+.homepage-wetrack-art .wetrack-changing-copy > span { text-wrap: balance; }
+
+/* Give the selected WeTrack screen more space within the poster. */
+.homepage-wetrack-art .wetrack-device-main { height: 400px; }
+@media (min-width: 901px) {
+ .work > .project .homepage-wetrack-art .wetrack-screens { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; }
+}
+@media (max-width: 600px) {
+ .homepage-wetrack-art .wetrack-device-main { height: 340px; }
+}
+
+/* Avoid isolated final words throughout homepage project copy. */
+.work > .project .project-description p,
+.work > .project .meal-copy > p,
+.work > .project .phone h4,
+.work > .project .meal-total small,
+.work > .project .focus-controls > span,
+.work > .project .teamslot-art-copy > p,
+.work > .project .teamslot-verdict > span,
+.work > .project .teamslot-verdict > p,
+.work > .project .teamslot-micro,
+.work > .project .tabby-receipt > p,
+.work > .project .art-caption,
+.other-work .other-card > p { text-wrap: pretty; }
+
+/* Keep featured case-study introductions in sync with the approved project copy. */
+.featured-case-meta { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px 25px; }
+.case-page-heading .featured-case-summary { font: 16px/1.9 var(--sans); max-width: 720px; margin-top: 22px; color: var(--muted); }
+.featured-case-tags { margin-top: 22px; }
+.case-page .case-page-heading > p,
+.case-page .case-study p,
+.case-page .case-study h2,
+.case-page .case-study h4,
+.case-page .research-note,
+.case-page figcaption { text-wrap: pretty; }
+@media (max-width: 600px) {
+ .featured-case-meta { flex-direction: column; gap: 8px; }
+}
+
+/* Reuse the approved posters on the featured case-study pages. */
+.case-page > .homepage-meal-art,
+.case-page > .homepage-focus-art,
+.case-page > .homepage-tabby-art,
+.case-page > .homepage-teamslot-art { position: relative; display: flex; flex-direction: column; height: auto; min-height: 540px; padding: 30px 32px 22px; }
+.case-page > .homepage-meal-art > .art-caption,
+.case-page > .homepage-focus-art > .art-caption,
+.case-page > .homepage-tabby-art > .art-caption,
+.case-page > .homepage-teamslot-art > .art-caption { position: static; display: block; margin-top: auto; padding-top: 24px; font-size: 10px; line-height: 1.6; }
+.case-page > .homepage-focus-art .focus-window { position: relative; left: auto; top: auto; transform: none; width: min(100%, 560px); margin: 36px auto; }
+.case-page > .homepage-focus-art .focus-controls { gap: 18px; flex-wrap: wrap; }
+.case-page > .homepage-focus-art .focus-controls > span { max-width: 280px; }
+.case-page > .homepage-meal-art .meal-composition { width: min(100%, 720px); margin: 30px auto; gap: 40px; }
+.case-page > .homepage-tabby-art .tabby-receipt { width: min(100%, 350px); }
+.case-page > .homepage-teamslot-art .teamslot-composition { min-width: 0; }
+@media (max-width: 700px) {
+ .case-page > .homepage-meal-art,
+ .case-page > .homepage-focus-art,
+ .case-page > .homepage-tabby-art,
+ .case-page > .homepage-teamslot-art { min-height: 0; padding: 22px 18px; }
+ .case-page > .homepage-meal-art .meal-composition { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 14px; }
+ .case-page > .homepage-meal-art .meal-copy { display: block; }
+ .case-page > .homepage-meal-art .meal-copy h3 { font-size: 28px; white-space: normal; }
+ .case-page > .homepage-meal-art .phone { width: 150px; }
+ .case-page > .homepage-focus-art .focus-body h3 { font-size: 30px; }
+ .case-page > .homepage-focus-art .pet { width: 65px; height: 78px; top: 65px; right: 15px; }
+ .case-page > .homepage-focus-art .pet-face { left: 10px; top: 26px; gap: 22px; }
+ .case-page > .homepage-focus-art .pet-face span { left: 12px; }
+ .case-page > .homepage-teamslot-art .teamslot-composition { padding: 25px 4px; gap: 28px; }
+}
+@media (max-width: 380px) {
+ .case-page > .homepage-meal-art .meal-composition { grid-template-columns: 1fr; }
+ .case-page > .homepage-meal-art .phone { justify-self: center; width: 190px; }
+}
